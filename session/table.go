@@ -8,6 +8,7 @@ import (
 
 func (s *Session) Model(value interface{}) *Session {
 	s.refSchema = schema.Parse(value, s.dialector)
+	s.curModel = value
 	return s
 }
 

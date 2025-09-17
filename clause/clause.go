@@ -9,6 +9,8 @@ const (
 	WHERE
 	ORDERBY
 	LIMIT
+	INSERT
+	VALUES
 )
 
 type ClauseBuilder struct {

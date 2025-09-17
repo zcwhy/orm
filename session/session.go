@@ -2,6 +2,7 @@ package session
 
 import (
 	"database/sql"
+	"orm/clause"
 	"orm/dialect"
 	"orm/log"
 	"orm/schema"
@@ -10,10 +11,13 @@ import (
 
 type Session struct {
 	db        *sql.DB
+	curModel  interface{}
 	refSchema *schema.Schema
 	dialector dialect.Dialector
 	sql       strings.Builder
 	sqlVars   []interface{}
+
+	clause clause.ClauseBuilder
 }
 
 func New(db *sql.DB, dialector dialect.Dialector) *Session {

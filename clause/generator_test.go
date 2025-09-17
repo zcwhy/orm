@@ -7,6 +7,10 @@ import (
 
 func TestClause(t *testing.T) {
 	t.Log(_select("User", []string{"*"}))
+
+	t.Log(_insert("User", []string{"Name", "Age"}))
+
+	t.Log(_values([]interface{}{[]interface{}{"Bob", "3"}, []interface{}{"Alan", "5"}}...))
 }
 
 func testSelect(t *testing.T) {
@@ -26,6 +30,10 @@ func testSelect(t *testing.T) {
 }
 
 func TestClause_Build(t *testing.T) {
+	t.Run("select", func(t *testing.T) {
+		testSelect(t)
+	})
+
 	t.Run("select", func(t *testing.T) {
 		testSelect(t)
 	})

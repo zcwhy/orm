@@ -41,3 +41,16 @@ func Parse(model interface{}, d dialect.Dialector) *Schema {
 	}
 	return s
 }
+
+func (s *Schema) GetTableColumns() []string {
+	columns := []string{}
+	for _, f := range s.Fields {
+		columns = append(columns, f.Name)
+	}
+
+	return columns
+}
+
+func (s *Schema) GetTableName() string {
+	return s.Name
+}
